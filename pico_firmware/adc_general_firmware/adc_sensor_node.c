@@ -66,8 +66,10 @@ static float read_channel(int i) {
     uint16_t raw = adc_read();
 
     float v = adc_counts_to_volts(raw);
+    float converted = CONV_M[i] * v + CONV_B[i];
+    printf("val: %d\n", converted);
 
-    return CONV_M[i] * v + CONV_B[i];
+    return converted;
 #endif
 }
 
@@ -84,8 +86,12 @@ static void build_payload(uint8_t *payload, uint32_t now_us) {
 static void irq_handler(uint gpio, uint32_t events) {
     (void)gpio;
 
+    // Toggle LED on interrupt
+    gpio_put(LED, !gpio_get(LED));
+    printf("In Interrupt ");
     // Temporarily sending on rising edges because buggy PCBs
     if (events & GPIO_IRQ_EDGE_RISE) {
+        printf("Chip select detected ");
         uint32_t now_us = (uint32_t)time_us_64();
         build_payload(payload_buf, now_us);
         (void)framed_spi_send_payload(&framed, payload_buf, PAYLOAD_LEN);
@@ -131,5 +137,7 @@ int main(void) {
 
     while (true) {
         tight_loop_contents();
+        printf("In Main ");
+        sleep_ms(1000)
     }
 }
