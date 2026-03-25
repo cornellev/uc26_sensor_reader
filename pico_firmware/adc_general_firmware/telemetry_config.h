@@ -7,11 +7,11 @@
 #define N_CH            2
 
 // ADC GPIO pins (must be GPIO 26–29)
-constant uint8_t ADC_GPIOS[N_CH] = {27, 26};
+const uint8_t ADC_GPIOS[N_CH] = {27, 26};
 
 // Linear conversion: value = m * volts + b
-constant float CONV_M[N_CH] = {50.0f, 24.0f};
-constant float CONV_B[N_CH] = {0.0f, 0.0f};
+const float CONV_M[N_CH] = {50.0f, 24.0f};
+const float CONV_B[N_CH] = {0.0f, 0.0f};
 
 // ADC parameters
 #define ADC_DEADZONE    0 // counts near 0 or max that we consider to be exactly 0V or VREF to avoid noise
