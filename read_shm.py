@@ -120,7 +120,8 @@ class SensorShmReader:
             return None
 
         buf = self._buf
-        while True:
+        max_retries = 1000
+        for _ in range(max_retries):
             seq1 = _read_seq(buf)
             if seq1 & 1:
                 continue
@@ -131,6 +132,8 @@ class SensorShmReader:
             seq2 = _read_seq(buf)
             if seq1 == seq2 and not (seq2 & 1):
                 return seq2, data
+
+        return None
 
     def read_snapshot_dict(self):
         """
