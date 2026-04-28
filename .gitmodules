@@ -1,0 +1,3 @@
+[submodule "can/can/RP2040_MCP251863_Driver"]
+	path = can/can/RP2040_MCP251863_Driver
+	url = https://github.com/cornellev/RP2040_MCP251863_Driver/
