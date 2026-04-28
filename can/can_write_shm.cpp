@@ -63,7 +63,7 @@ int main() {
 
         mcp.pushTXFIFO(tx_fifo_num, request_msg, header_size + payload_size);
         // write the message into MCP internal RAM via TX FIFO
-
+T
         mcp.reqSendTXFIFO(tx_fifo_num);
         // tells MCP to actually transmit the message on the CAN bus
 
