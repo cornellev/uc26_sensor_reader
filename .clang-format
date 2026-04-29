@@ -1,9 +1,13 @@
 ---
-BasedOnStyle: LLVM
+BasedOnStyle: Google
 
-IndentWidth:   4
-TabWidth:      4
-UseTab:        Never
-ColumnLimit:   100
-
-AllowShortFunctionsOnASingleLine: None
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+ColumnLimit: 100
+# BinPackArguments: false
+# AllowAllArgumentsOnNextLine: false
+# PenaltyBreakBeforeFirstCallParameter: 0
+AlignAfterOpenBracket: AlwaysBreak
+BinPackArguments: false
+BinPackParameters: false
