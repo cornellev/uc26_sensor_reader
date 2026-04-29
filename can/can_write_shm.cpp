@@ -12,7 +12,8 @@ constexpr uint32_t PI_ID = 1;
 constexpr uint32_t BOARD_ID = 2;
 
 int main() {
-    MCP251863 mcp{};
+    // constructs mcp. need to find actual values to use for constructor
+    MCP251863 mcp{spi0, 2, 3};
 
     // bring up chip
     mcp.init();
