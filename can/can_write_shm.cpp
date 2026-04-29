@@ -11,6 +11,9 @@ constexpr uint8_t filter_num = 0;
 constexpr uint32_t PI_ID = 1;
 constexpr uint32_t BOARD_ID = 2;
 
+constexpr uint32_t header_size = 8;
+constexpr uint32_t payload_size = 12;
+
 int main() {
     // constructs mcp. need to find actual values to use for constructor
     MCP251863 mcp{spi0, 2, 3};
@@ -49,18 +52,18 @@ int main() {
     mcp.initFilter(filter_num, rx_fifo_num, PI_ID);
 
     for (;;) {
-        // 1-byte null payload just to indicate that we're requesting sensor
+        // zeroed payload just to indicate that we're requesting sensor
         // data
-        uint8_t request_payload[1] = {0x00};
+        uint8_t request_payload[payload_size] = {0x00};
 
-        uint8_t request_msg[8 + 1]; /* 8 byte header + 1 byte payload */
+        uint8_t request_msg[header_size + payload_size]; /* total = header + payload */
 
         // build the CAN FD message
         create_message_obj(
             request_msg,
             request_payload,
             CAN_FD_BASE_MCP,
-            PL_SIZE_MCP_1,
+            PL_SIZE_MCP_12,
             BOARD_ID,
             1 /* bit rate switching enabled */
         );
