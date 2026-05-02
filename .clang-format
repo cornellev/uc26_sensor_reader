@@ -11,3 +11,4 @@ ColumnLimit: 100
 AlignAfterOpenBracket: AlwaysBreak
 BinPackArguments: false
 BinPackParameters: OnePerLine
+AlignConsecutiveAssignments: AcrossEmptyLinesAndComments
