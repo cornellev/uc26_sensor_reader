@@ -10,4 +10,4 @@ ColumnLimit: 100
 # PenaltyBreakBeforeFirstCallParameter: 0
 AlignAfterOpenBracket: AlwaysBreak
 BinPackArguments: false
-BinPackParameters: false
+BinPackParameters: OnePerLine

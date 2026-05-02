@@ -1,3 +1,6 @@
 shm_writer
 .vscode
 .DS_Store
+build/
+compile_commands.json
+.envrc

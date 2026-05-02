@@ -1,0 +1,4 @@
+Diagnostics:
+  Suppress: [ pp_file_not_found ]
+CompileFlags:
+  Add: [ -Wno-unknown-warning-option ]
