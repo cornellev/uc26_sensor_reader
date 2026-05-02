@@ -26,7 +26,7 @@ pico_sdk_init()
 
 add_subdirectory(RP2040_MCP251863_Driver)
 
-add_executable(can_firmware can_write_shm.cpp)
+add_executable(can_firmware can_firmware.cpp)
 
 target_link_libraries(can_firmware
     rp2040_mcp251863
