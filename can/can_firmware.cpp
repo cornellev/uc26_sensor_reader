@@ -88,9 +88,9 @@ int main() {
 
     for (;;) {
         // zeroed payload just to indicate that we're requesting sensor data
-        uint8_t request_payload[request_payload_size] = {0x00};
+        uint8_t request_payload[request_payload_size] = {};
 
-        uint8_t request_msg[request_msg_size];
+        uint8_t request_msg[request_msg_size] = {};
 
         // build the CAN FD message
         create_message_obj(
